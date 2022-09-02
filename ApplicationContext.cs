@@ -22,8 +22,12 @@ namespace Entity
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // использование Fluent API
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Customer>().HasKey(c => c.Id);
+            modelBuilder.Entity<PhoneNumber>().HasKey(p => p.Id);
+            modelBuilder.Entity<Customer>().HasOne(p => p.PhoneNumber).WithOne(c => c.Customer)
+                .HasForeignKey<PhoneNumber>(n => n.Id);
+                
         }
+
     }
 }

@@ -12,7 +12,7 @@ namespace Entity
 
         public String Number { get; set; } = null!;
 
-        Customer? Customer { get; set; }
+        public Customer? Customer { get; set; }
 
     }
 }
